@@ -20,7 +20,7 @@ public class RetailCustomer extends Customer {
 
     public int findDiscountRate(){
 
-       int discountRate;
+       int discountRate = 0;
 
         if (totalPurchases > 10000) {
             discountRate = 15;
