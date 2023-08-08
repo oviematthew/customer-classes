@@ -36,7 +36,8 @@ public class RetailCustomer extends Customer {
     }
 
     public double incentives(){
-        int discountRate = findDiscountRate();        
+        int discountRate = findDiscountRate(); 
+        //cast discountRate to double       
         return totalPurchases * ((double)discountRate / 100.0);
     }
 
