@@ -20,8 +20,7 @@ public class PreferredCustomer extends RetailCustomer {
 
    
     public double incentives(){
-        // Calculate the discount rate based on RetailCustomer's total purchases
-        double discountRate = findDiscountRate();
+       
 
         // calling the super since they are same method names
         double retailCustomerIncentives = super.incentives();
@@ -35,5 +34,7 @@ public class PreferredCustomer extends RetailCustomer {
         return totalIncentive;
     }
 
-
+    public String toString() {
+        return super.toString() + String.format("\nCashback Rate: %d%%", + cashBackRate);
+    }
 }

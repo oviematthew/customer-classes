@@ -71,9 +71,8 @@ public abstract class Customer {
 
     public abstract double incentives();
 
-    public String toString(){
-       
-        return  customerID + "," + firstName + lastName;
+    public String toString() {
+        return String.format("Customer ID: %s\nName: %s %s\nLevel: %s", customerID, firstName, lastName, customerLevel);
     }
 
     

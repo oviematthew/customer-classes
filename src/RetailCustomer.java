@@ -41,7 +41,7 @@ public class RetailCustomer extends Customer {
         return totalPurchases * ((double)discountRate / 100.0);
     }
 
-    public String toString(){
-        return super.toString() + "";
+    public String toString() {
+        return super.toString() + String.format("\nTotal Purchases: $%.2f", totalPurchases);
     }
 }

@@ -41,10 +41,8 @@ public class BusinessCustomer extends Customer {
         return totalPurchases * ((double) discountRate / 100);
     }
 
-    public String toString(){
-
-        
-
-        return super.toString() + "";
+    public String toString() {
+        return super.toString() + String.format("\nCompany: %s\nDiscount Rate: %d%%\nTotal Purchases: $%.2f",
+                                                companyName, discountRate, totalPurchases);
     }
 }
