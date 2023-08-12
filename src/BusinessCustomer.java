@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class BusinessCustomer extends Customer {
     
     private String companyName;
@@ -47,7 +45,7 @@ public class BusinessCustomer extends Customer {
         double netPurchases = totalPurchases - incentives();
 
         return super.toString() + "\n" +super.getCustomerLevel() + " Customer for " + companyName + 
-        String.format(Locale.US, "\nTotal Purchases: $%.2f \nDiscount Rate: %d%% \nDiscount Incentive: $%.2f \nNet Purchases: $%.2f",
+        String.format("\nTotal Purchases: $%.2f \nDiscount Rate: %d%% \nDiscount Incentive: $%.2f \nNet Purchases: $%.2f",
         totalPurchases, discountRate, incentives(), netPurchases);
     }
 }

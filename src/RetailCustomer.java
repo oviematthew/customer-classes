@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class RetailCustomer extends Customer {
     
     private double totalPurchases;
@@ -37,17 +35,22 @@ public class RetailCustomer extends Customer {
         return discountRate;
     }
 
-    public double incentives(){
+    public double incentives() {
         int discountRate = findDiscountRate(); 
-        //cast discountRate to double       
-        return totalPurchases * ((double)discountRate / 100.0);
+        double incentives = totalPurchases * ((double) discountRate / 100.0);
+        
+        // Round total incentives to two decimal places
+        double roundedIncentives = Math.round(incentives * 100.0) / 100.0;
+        
+        return roundedIncentives;
     }
+    
 
     public String toString() {
         double netPurchases = totalPurchases - incentives();
     
         return super.toString() + "\n" +super.getCustomerLevel() + " Customer" +
-        String.format(Locale.US, "\nTotal Purchases: $%.2f \nDiscount Rate: %d%% \nDiscount Incentive: $%.2f \nNet Purchases: $%.2f",
+        String.format("\nTotal Purchases: $%.2f \nDiscount Rate: %d%% \nDiscount Incentive: $%.2f \nNet Purchases: $%.2f",
         totalPurchases, findDiscountRate(), incentives(), netPurchases);
     }
     
