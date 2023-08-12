@@ -1,7 +1,9 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 public class CustomerTester {
     public static void main(String[] args) throws Exception {
+        System.out.println();
         System.out.println("Welcome to the Customer tester!");
         System.out.println("---------------------------------------------------------------------------------------");
 
@@ -64,6 +66,34 @@ public class CustomerTester {
 
 
         // Make Changes Using Setter Methods
+        businessCustomer2.setTotalPurchases(8895);
+        businessCustomer2.setDiscountRate(12);
 
+        retailCustomer3.setTotalPurchases(100500);
+
+        preferredCustomer3.setTotalPurchases(14987.24);
+        preferredCustomer3.setLastName("Papko-Soni");
+        preferredCustomer3.setCashBackRate(13);
+
+        retailCustomer4.setLastName("Viana Bresolin");
+
+        System.out.println();
+        // Print the Customer list again to show the above changes
+        for (Customer customer : customerList) {
+            System.out.println(customer.toString());
+            System.out.println();
+        }
+
+
+        // Next, sort the Customer list according to each customer’s last name
+        Collections.sort(customerList);
+
+        
+        // Print the sorted Customer 
+        System.out.println("Sorted List:");
+        for (Customer customer : customerList) {
+            System.out.println(customer.toString());
+            System.out.println();
+        }
     }
 }
