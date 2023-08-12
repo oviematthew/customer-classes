@@ -42,16 +42,26 @@ public abstract class Customer {
     }
 
     private void setCustomerID() {
-        String lastNamePart = lastName.toUpperCase();
+
+        // First start by removing any spaces in the last name
+        String lastNameNoSpace = lastName.replace(" ", "");
+
+        // Then remove those with apostrophes
+        String lastNameNoApos = lastNameNoSpace.replace("'", "");
+
+        // convert last name to uppercase
+        String finalLastName = lastNameNoApos.toUpperCase();
         
-        // Pad the last name with 'X' if it's less than 4 characters
-        if (lastNamePart.length() < 4) {
-            int paddingLength = 4 - lastNamePart.length();
-            for (int i = 0; i < paddingLength; i++) {
-                lastNamePart += 'X';
+
+        // If lastname is less than 4 assign x for outstanding remaining parts if not, just take 4 out of it
+        if (finalLastName.length() < 4) {
+
+            int additionalLetters = 4 - finalLastName.length();
+            for (int i = 0; i < additionalLetters; i++) {
+                finalLastName += 'X';
             }
         } else {
-            lastNamePart = lastNamePart.substring(0, 4);
+            finalLastName = finalLastName.substring(0, 4);
         }
 
         // Generate 5 random digits between 0-9
@@ -61,8 +71,9 @@ public abstract class Customer {
             randomDigits += randomDigit;
         }
 
-        // Combine the parts to form the customer ID
-        customerID = lastNamePart + "-" + randomDigits;
+
+        // Combine the parts plus - to form the customer ID
+        customerID = finalLastName + "-" + randomDigits;
     }
 
     public void setCustomerLevel(String customerLevel) {
@@ -72,8 +83,8 @@ public abstract class Customer {
     public abstract double incentives();
 
     public String toString() {
-        return String.format("Customer ID: %s\nName: %s %s\nLevel: %s", customerID, firstName, lastName, customerLevel);
+        return customerID + ", " + firstName +" " + lastName;
     }
-
+    
     
 }
